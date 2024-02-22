@@ -50,20 +50,23 @@ function App() {
 
       <div className="List">
         {state.loading && <p>Loading...</p>}
+        {state.error && <p>😭 Sorry about that! Something went wrong!</p>}
 
-        {!state.loading && state.people && (
+        {!state.loading && !state.error && state.people && (
           <SpeciesContext.Provider value={[speciesContext, setSpeciesContext]}>
             <CardList people={state.people} />
           </SpeciesContext.Provider>
         )}
       </div>
 
-      <Pagination
-        page={page}
-        pageMax={Math.ceil(state.count / PAGE_SIZE)}
-        onPrevClick={() => setPage(page - 1)}
-        onNextClick={() => setPage(page + 1)}
-      />
+      {state.count && (
+        <Pagination
+          page={page}
+          pageMax={Math.ceil(state.count / PAGE_SIZE)}
+          onPrevClick={() => setPage(page - 1)}
+          onNextClick={() => setPage(page + 1)}
+        />
+      )}
     </div>
   );
 }

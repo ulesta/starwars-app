@@ -16,8 +16,6 @@ export default function Card({
 }) {
   const [showDetails, setShowDetails] = React.useState(false);
 
-  console.log(backgroundColor);
-
   return (
     <div
       className="Card"

@@ -2,7 +2,7 @@ export const peopleInitialState = {
   people: [],
   loading: true,
   error: null,
-  count: 0,
+  count: null,
 };
 
 export const peopleReducer = (state, action) => {
@@ -11,6 +11,7 @@ export const peopleReducer = (state, action) => {
       return {
         ...state,
         loading: true,
+        error: null,
       };
     case "FETCH_SUCCESS":
       return {
