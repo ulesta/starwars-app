@@ -1,9 +1,6 @@
 import React, { useContext, useEffect, useReducer } from "react";
 
-import "./PersonModal.css";
-
 import Header from "../Header/Header";
-
 import { UNKNOWN_VALUE } from "../../constants/contants";
 import {
   homeworldInitialState,
@@ -12,6 +9,8 @@ import {
 import { SkeletonText } from "../SkeletonText/SkeletonText";
 import { SpeciesContext } from "../../context/SpeciesContext";
 import { convertCentimetresToMetres, formatDate } from "../../utils/utils";
+
+import "./PersonModal.css";
 
 export default function PersonModal({ title, onDismiss, person }) {
   const [homeworld, dispatch] = useReducer(

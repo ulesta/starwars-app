@@ -1,13 +1,13 @@
 import { useEffect, useReducer, useState } from "react";
 
-import "./App.css";
-
 import { peopleInitialState, peopleReducer } from "./reducers/peopleReducer";
 import Pagination from "./components/Pagination/Pagination";
 import { CardList } from "./components/CardList/CardList";
 import { SpeciesContext } from "./context/SpeciesContext";
 import PersonModal from "./components/PersonModal/PersonModal";
 import { BASE_URL } from "./constants/contants";
+
+import "./App.css";
 
 const PAGE_SIZE = 10;
 

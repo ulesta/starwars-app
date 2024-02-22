@@ -1,7 +1,8 @@
 import React from "react";
 
-import "./Header.css";
 import { Button } from "../Button/Button";
+
+import "./Header.css";
 
 export default function Header({ title, onActionClick, backgroundColor }) {
   return (

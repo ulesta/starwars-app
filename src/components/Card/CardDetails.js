@@ -1,9 +1,9 @@
 import React from "react";
 
-import "./CardDetails.css";
-
 import { UNKNOWN_VALUE } from "../../constants/contants";
 import { convertCentimetresToMetres, formatDate } from "../../utils/utils";
+
+import "./CardDetails.css";
 
 export default function CardDetails({
   name,

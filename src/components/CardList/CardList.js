@@ -1,8 +1,9 @@
 import { useContext, useEffect } from "react";
+
+import { SpeciesContext } from "../../context/SpeciesContext";
 import Card from "../Card/Card";
 
 import "./CardList.css";
-import { SpeciesContext } from "../../context/SpeciesContext";
 
 export function CardList({ people, onCardClick }) {
   const [speciesContext, setSpeciesContext] = useContext(SpeciesContext);

@@ -1,8 +1,9 @@
 import React from "react";
 
-import "./Card.css";
 import CardFront from "./CardFront";
 import CardDetails from "./CardDetails";
+
+import "./Card.css";
 
 export default function Card({
   backgroundColor,
