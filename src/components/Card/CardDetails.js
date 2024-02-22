@@ -27,11 +27,11 @@ export default function CardDetails({
         <li className="CardDetails-detail-item">
           Mass: {mass !== UNKNOWN_VALUE ? `${mass}kg` : UNKNOWN_VALUE}
         </li>
-        <li className="CardDetails-detail-item">Birth year: {birthYear}</li>
-        <li className="CardDetails-detail-item">Films: {numOfFilms}</li>
         <li className="CardDetails-detail-item">
           Added: {formatDate(dateAdded)}
         </li>
+        <li className="CardDetails-detail-item">Films: {numOfFilms}</li>
+        <li className="CardDetails-detail-item">Birth year: {birthYear}</li>
         {/* <li className="CardDetails-detail-item">Species: {species}</li> */}
       </ul>
     </div>

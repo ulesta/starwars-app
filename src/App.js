@@ -23,19 +23,41 @@ function updateQueryParams(page) {
 
 function App() {
   const [state, dispatch] = useReducer(peopleReducer, peopleInitialState);
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(null);
   const [selectedPerson, setSelectedPerson] = useState(null);
   const [speciesContext, setSpeciesContext] = useState({
     default: "rgb(155,155,90)",
   });
 
   useEffect(() => {
-    updateQueryParams(page);
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("page")) {
+      try {
+        setPage(parseInt(params.get("page")));
+      } catch (error) {
+        setPage(null);
+      }
+    } else {
+      setPage(1);
+    }
+  }, []);
 
+  useEffect(() => {
+    if (!page) {
+      dispatch({ type: "FETCH_ERROR", error: "Page not found" });
+      return;
+    }
+
+    updateQueryParams(page);
     // TODO: we can cache this by page number
     dispatch({ type: "FETCH_PAGE" });
     fetch(`${BASE_URL}/people/?page=${page}`)
-      .then((res) => res.json())
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error(res);
+        }
+        return res.json();
+      })
       .then((data) => {
         dispatch({
           type: "FETCH_SUCCESS",

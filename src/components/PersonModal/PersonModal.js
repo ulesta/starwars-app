@@ -23,10 +23,15 @@ export default function PersonModal({ title, onDismiss, person }) {
   useEffect(() => {
     if (person.homeworld) {
       // TODO: we can cache this homeworld
-      dispatch({ type: "FETCH_PAGE" });
+      dispatch({ type: "FETCH_HOMEWORLD" });
 
       fetch(person.homeworld)
-        .then((response) => response.json())
+        .then((res) => {
+          if (!res.ok) {
+            throw new Error(res);
+          }
+          return res.json();
+        })
         .then((data) => {
           dispatch({ type: "FETCH_HOMEWORLD_SUCCESS", details: data });
         })
@@ -65,13 +70,13 @@ export default function PersonModal({ title, onDismiss, person }) {
                 : UNKNOWN_VALUE}
             </li>
             <li className="PersonModal-details-item">
-              Birth year: {person.birth_year}
+              Added: {formatDate(person.created)}
             </li>
             <li className="PersonModal-details-item">
               Films: {person.films.length}
             </li>
             <li className="PersonModal-details-item">
-              Added: {formatDate(person.created)}
+              Birth year: {person.birth_year}
             </li>
           </ul>
 
