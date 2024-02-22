@@ -1,4 +1,13 @@
-# Getting Started with Create React App
+# Star Wars App
+
+![image](https://github.com/ulesta/starwars-app/blob/main/assets/screenshot.png?raw=true)
+
+## How to run
+
+```
+npm i
+npm start
+```
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
