@@ -1,0 +1,12 @@
+.Card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 24px;
+    width: 324px;
+    height: 364px;
+    background-color: pink;
+    border-radius: 25px;
+}

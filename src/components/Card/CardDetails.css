@@ -1,0 +1,27 @@
+.CardDetails {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.CardDetails > .CardDetails-header {
+    width: 100%;
+    text-align: left;
+    font-size: 1em;   
+}
+
+.CardDetails > .CardDetails-details {
+    padding: 0;
+    list-style: none;
+    text-align: left;
+    font-size: 0.7em;
+
+    width: 100%;
+}
+
+.CardDetails > .CardDetails-details .CardDetails-detail-item {
+    margin: 0;
+    margin-bottom: 10px;
+}
