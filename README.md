@@ -1,6 +1,6 @@
 # Star Wars App
 
-![image](https://github.com/ulesta/starwars-app/blob/main/assets/screenshot.png?raw=true)
+![image](https://github.com/ulesta/starwars-app/blob/main/assets/screenrecording.gif?raw=true)
 
 ## How to run
 
