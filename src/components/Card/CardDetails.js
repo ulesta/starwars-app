@@ -2,8 +2,8 @@ import React from "react";
 
 import "./CardDetails.css";
 
-import { FormattedDate } from "../FormattedDate";
 import { UNKNOWN_VALUE } from "../../constants/contants";
+import { convertCentimetresToMetres, formatDate } from "../../utils/utils";
 
 export default function CardDetails({
   name,
@@ -19,7 +19,10 @@ export default function CardDetails({
       <h1 className="CardDetails-header">{name}</h1>
       <ul className="CardDetails-details">
         <li className="CardDetails-detail-item">
-          Height: {height !== UNKNOWN_VALUE ? `${height}m` : UNKNOWN_VALUE}
+          Height:{" "}
+          {height !== UNKNOWN_VALUE
+            ? `${convertCentimetresToMetres(height)}m`
+            : UNKNOWN_VALUE}
         </li>
         <li className="CardDetails-detail-item">
           Mass: {mass !== UNKNOWN_VALUE ? `${mass}kg` : UNKNOWN_VALUE}
@@ -27,7 +30,7 @@ export default function CardDetails({
         <li className="CardDetails-detail-item">Birth year: {birthYear}</li>
         <li className="CardDetails-detail-item">Films: {numOfFilms}</li>
         <li className="CardDetails-detail-item">
-          Added: <FormattedDate value={dateAdded} />
+          Added: {formatDate(dateAdded)}
         </li>
         {/* <li className="CardDetails-detail-item">Species: {species}</li> */}
       </ul>

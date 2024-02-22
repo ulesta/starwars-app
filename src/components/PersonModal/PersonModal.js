@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useReducer } from "react";
 import "./PersonModal.css";
 
 import Header from "../Header/Header";
-import { FormattedDate } from "../FormattedDate";
+
 import { UNKNOWN_VALUE } from "../../constants/contants";
 import {
   homeworldInitialState,
@@ -11,6 +11,7 @@ import {
 } from "../../reducers/homeworldReducer";
 import { SkeletonText } from "../SkeletonText/SkeletonText";
 import { SpeciesContext } from "../../context/SpeciesContext";
+import { convertCentimetresToMetres, formatDate } from "../../utils/utils";
 
 export default function PersonModal({ title, onDismiss, person }) {
   const [homeworld, dispatch] = useReducer(
@@ -54,7 +55,7 @@ export default function PersonModal({ title, onDismiss, person }) {
             <li className="PersonModal-details-item">
               Height:{" "}
               {person.height !== UNKNOWN_VALUE
-                ? `${person.height}m`
+                ? `${convertCentimetresToMetres(person.height)}m`
                 : UNKNOWN_VALUE}
             </li>
             <li className="PersonModal-details-item">
@@ -70,7 +71,7 @@ export default function PersonModal({ title, onDismiss, person }) {
               Films: {person.films.length}
             </li>
             <li className="PersonModal-details-item">
-              Added: <FormattedDate value={person.dateAdded} />
+              Added: {formatDate(person.created)}
             </li>
           </ul>
 
