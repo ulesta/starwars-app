@@ -9,7 +9,7 @@ export default function Pagination({
   onNextClick,
 }) {
   return (
-    <div className="Pagination">
+    <nav className="Pagination" aria-labelledby="Page Navigation">
       <button
         disabled={page === 1}
         className="Pagination-button"
@@ -27,6 +27,6 @@ export default function Pagination({
       >
         Next ➡️
       </button>
-    </div>
+    </nav>
   );
 }
