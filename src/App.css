@@ -2,17 +2,13 @@
   text-align: center;
   width: 100vw;
   margin-bottom: 64px;
+  
+  position: relative;
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
 }
 
 .List {
@@ -25,15 +21,19 @@
   align-items: center;
 }
 
+.Loading {
+  animation: Loading-spin infinite 500ms;
+}
+
 .App-link {
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
+@keyframes Loading-spin {
   from {
-    transform: rotate(0deg);
+    transform: scale(1);
   }
   to {
-    transform: rotate(360deg);
+    transform: scale(1.5);
   }
 }

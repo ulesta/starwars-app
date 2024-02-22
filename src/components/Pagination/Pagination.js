@@ -1,6 +1,7 @@
 import React from "react";
 
 import "./Pagination.css";
+import { Button } from "../Button/Button";
 
 export default function Pagination({
   page,
@@ -10,23 +11,15 @@ export default function Pagination({
 }) {
   return (
     <nav className="Pagination" aria-labelledby="Page Navigation">
-      <button
-        disabled={page === 1}
-        className="Pagination-button"
-        onClick={() => onPrevClick()}
-      >
-        ⬅️ Previous
-      </button>
+      <Button disabled={page === 1} onClick={() => onPrevClick()}>
+        ⬅️&nbsp;Previous
+      </Button>
       <div>
         {page} / {pageMax}
       </div>
-      <button
-        disabled={page === pageMax}
-        className="Pagination-button"
-        onClick={() => onNextClick()}
-      >
-        Next ➡️
-      </button>
+      <Button disabled={page === pageMax} onClick={() => onNextClick()}>
+        Next&nbsp;➡️
+      </Button>
     </nav>
   );
 }

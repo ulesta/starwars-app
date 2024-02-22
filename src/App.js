@@ -6,6 +6,8 @@ import { peopleInitialState, peopleReducer } from "./reducers/peopleReducer";
 import Pagination from "./components/Pagination/Pagination";
 import { CardList } from "./components/CardList/CardList";
 import { SpeciesContext } from "./context/SpeciesContext";
+import PersonModal from "./components/PersonModal/PersonModal";
+import { BASE_URL } from "./constants/contants";
 
 const PAGE_SIZE = 10;
 
@@ -22,6 +24,7 @@ function updateQueryParams(page) {
 function App() {
   const [state, dispatch] = useReducer(peopleReducer, peopleInitialState);
   const [page, setPage] = useState(1);
+  const [selectedPerson, setSelectedPerson] = useState(null);
   const [speciesContext, setSpeciesContext] = useState({
     default: "rgb(155,155,90)",
   });
@@ -29,8 +32,9 @@ function App() {
   useEffect(() => {
     updateQueryParams(page);
 
+    // TODO: we can cache this by page number
     dispatch({ type: "FETCH_PAGE" });
-    fetch(`https://swapi.dev/api/people/?page=${page}`)
+    fetch(`${BASE_URL}/people/?page=${page}`)
       .then((res) => res.json())
       .then((data) => {
         dispatch({
@@ -46,15 +50,16 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header"></header>
-
       <div className="List">
-        {state.loading && <p>Loading...</p>}
+        {state.loading && <p className="Loading">🌘 Loading...</p>}
         {state.error && <p>😭 Sorry about that! Something went wrong!</p>}
 
         {!state.loading && !state.error && state.people && (
           <SpeciesContext.Provider value={[speciesContext, setSpeciesContext]}>
-            <CardList people={state.people} />
+            <CardList
+              people={state.people}
+              onCardClick={(person) => setSelectedPerson(person)}
+            />
           </SpeciesContext.Provider>
         )}
       </div>
@@ -66,6 +71,16 @@ function App() {
           onPrevClick={() => setPage(page - 1)}
           onNextClick={() => setPage(page + 1)}
         />
+      )}
+
+      {selectedPerson && (
+        <SpeciesContext.Provider value={[speciesContext]}>
+          <PersonModal
+            title={selectedPerson.name}
+            onDismiss={() => setSelectedPerson(null)}
+            person={selectedPerson}
+          />
+        </SpeciesContext.Provider>
       )}
     </div>
   );

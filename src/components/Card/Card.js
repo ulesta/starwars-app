@@ -18,7 +18,7 @@ export default function Card({
 
   return (
     <div
-      className="Card"
+      className={`Card ${showDetails ? "hover" : ""}`}
       style={{ backgroundColor }}
       onMouseOver={() => {
         setShowDetails(true);
@@ -27,19 +27,20 @@ export default function Card({
         setShowDetails(false);
       }}
     >
-      {showDetails ? (
-        <CardDetails
-          name={name}
-          birthYear={birthYear}
-          dateAdded={dateAdded}
-          height={height}
-          mass={mass}
-          numOfFilms={numOfFilms}
-          species={species}
-        />
-      ) : (
-        <CardFront name={name} />
-      )}
+      <CardFront
+        hidden={showDetails}
+        name={name}
+        backgroundColor={backgroundColor}
+      />
+      <CardDetails
+        name={name}
+        birthYear={birthYear}
+        dateAdded={dateAdded}
+        height={height}
+        mass={mass}
+        numOfFilms={numOfFilms}
+        species={species}
+      />
     </div>
   );
 }

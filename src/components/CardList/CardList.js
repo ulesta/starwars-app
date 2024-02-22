@@ -4,7 +4,7 @@ import Card from "../Card/Card";
 import "./CardList.css";
 import { SpeciesContext } from "../../context/SpeciesContext";
 
-export function CardList({ people }) {
+export function CardList({ people, onCardClick }) {
   const [speciesContext, setSpeciesContext] = useContext(SpeciesContext);
 
   useEffect(() => {
@@ -33,7 +33,12 @@ export function CardList({ people }) {
   return (
     <ul className="CardList">
       {people.map((person) => (
-        <li className="CardList-item" tabIndex={0} key={person.name}>
+        <li
+          className="CardList-item"
+          tabIndex={0}
+          key={person.name}
+          onClick={() => onCardClick && onCardClick(person)}
+        >
           <Card
             backgroundColor={
               speciesContext[

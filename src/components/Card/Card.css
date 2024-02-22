@@ -8,4 +8,14 @@
     width: 324px;
     height: 364px;
     border-radius: 25px;
+
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: hidden;
+
+    transition: all 250ms ease-in-out;
+}
+
+.Card.hover {
+    transform: scale(1.1);
 }

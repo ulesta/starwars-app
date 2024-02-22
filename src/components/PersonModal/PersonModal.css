@@ -1,0 +1,45 @@
+.PersonModal {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+
+    backdrop-filter: blur(10px);
+    text-align: left;
+}
+
+.PersonModal .PersonModal-container {
+    position: fixed;
+    left: 10%;
+    right: 10%;
+    bottom: 0;
+    height: calc(100vh - 40px);
+
+    border-radius: 25px 25px 0 0;
+    overflow: hidden;
+    background: lightcyan;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
+}
+
+.PersonModal .PersonModal-content {
+    padding: 24px;
+}
+
+.PersonModal .PersonModal-details {
+    list-style: none;
+    text-align: left;
+    font-size: 1em;
+    padding: 0;
+
+    width: 100%;
+}
+
+.PersonModal .PersonModal-details>.PersonModal-details-item {
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+.PersonModal .SkeletonText {
+    margin-bottom: 10px;
+}

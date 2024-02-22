@@ -3,8 +3,7 @@ import React from "react";
 import "./CardDetails.css";
 
 import { FormattedDate } from "../FormattedDate";
-
-const UNKNOWN_VALUE = "unknown";
+import { UNKNOWN_VALUE } from "../../constants/contants";
 
 export default function CardDetails({
   name,
@@ -20,7 +19,7 @@ export default function CardDetails({
       <h1 className="CardDetails-header">{name}</h1>
       <ul className="CardDetails-details">
         <li className="CardDetails-detail-item">
-          Height: {height !== UNKNOWN_VALUE ? `${height}kg` : UNKNOWN_VALUE}
+          Height: {height !== UNKNOWN_VALUE ? `${height}m` : UNKNOWN_VALUE}
         </li>
         <li className="CardDetails-detail-item">
           Mass: {mass !== UNKNOWN_VALUE ? `${mass}kg` : UNKNOWN_VALUE}
