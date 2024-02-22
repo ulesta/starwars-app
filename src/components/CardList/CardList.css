@@ -1,0 +1,13 @@
+.CardList {
+    width: 100%;
+    list-style-type: none;
+    padding: 0;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.CardList .CardList-item {
+    margin: 20px;
+}
