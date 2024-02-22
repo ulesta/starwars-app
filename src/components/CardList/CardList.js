@@ -33,14 +33,13 @@ export function CardList({ people }) {
   return (
     <ul className="CardList">
       {people.map((person) => (
-        <li className="CardList-item" tabIndex={0}>
+        <li className="CardList-item" tabIndex={0} key={person.name}>
           <Card
             backgroundColor={
               speciesContext[
                 person.species.length ? person.species[0] : "default"
               ]
             }
-            key={person.name}
             name={person.name}
             birthYear={person.birth_year}
             dateAdded={person.created}
